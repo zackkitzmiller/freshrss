@@ -3,7 +3,7 @@ version: "3"
 services:
   freshrss_postgresql:
     image: postgres
-    restart: unless-stopped
+    restart: always
     container_name: freshrss-db
     volumes:
       - pgsql_data:/var/lib/postgresql/data
@@ -14,7 +14,7 @@ services:
 
   freshrss:
     image: freshrss/freshrss
-    restart: unless-stopped
+    restart: always
     ports:
       - "8080:80"
     depends_on:
@@ -25,6 +25,8 @@ services:
     environment:
       - CRON_MIN=*/5
       - TZ=America/Chicago
+    labels:
+      kompose.service.type: LoadBalancer
 
 volumes:
   pgsql_data:
