@@ -2,5 +2,5 @@ steps:
 - name: 'docker/compose:1.19.0'
   args: ['up', '-d']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'freshrss:latest', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+  args: ['tag', 'freshrss:4f53d52e7c29822766dcef2d11d7ddc94c04913d', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
